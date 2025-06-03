@@ -1,0 +1,6 @@
+# List of repositories to track
+repos:
+  - owner: MinimalDevops
+    repo: MD-Youtube-Summarizer
+  - owner: MinimalDevops
+    repo: aws-api-gateway-apikey-rotation 
