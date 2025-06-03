@@ -31,3 +31,6 @@ Thumbs.db
 
 # Ignore secrets/example files
 .env.example 
+
+# Cronjob Script
+add_github_traffic_cron.sh

@@ -66,6 +66,19 @@ uv pip install -r requirements.txt
 python github_traffic_tracker.py
 ```
 
+## Automate Daily Fetch with Cron
+To ensure you never miss a day of GitHub traffic data, set up a cronjob to run the tracker script automatically every day (e.g., at 9AM). This will keep your metrics up to date without manual intervention.
+
+**Example cron line (runs daily at 9AM):**
+```
+0 9 * * * cd /path/to/your/project && /path/to/your/project/.venv/bin/python /path/to/your/project/github_traffic_tracker.py >> /path/to/your/project/cron.log 2>&1
+```
+- Adjust the paths as needed for your environment.
+- This will log output to `cron.log` in your project directory.
+- Use `crontab -e` to add the line to your crontab without removing existing jobs.
+
+Automating the fetch ensures you always have the latest metrics, even if you forget to run the script manually.
+
 ---
 
 ## Visualization Options
