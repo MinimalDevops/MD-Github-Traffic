@@ -13,6 +13,8 @@ This project uses **Supabase** as a cloud-hosted PostgreSQL database. This means
 - You can always access your GitHub traffic history in the future.
 - **Alternative:** You can use a local PostgreSQL database if you prefer, but you'll need to update the connection string in your `.env` and ensure your local DB is running when you run the scripts.
 
+New to Supabase? [Learn how to setup Postgres here](https://docs.stacksync.com/guides/two-way-sync-salesforce-and-postgres/create-a-postgres-database-with-supabase-free-forever)
+
 ## Repository Configuration
 Repositories to track are  configured in a separate `repos.yaml` file. Example:
 ```yaml
@@ -29,6 +31,18 @@ You can add as many repositories as you like. The script will fetch metrics for 
 ### 1. GitHub Token
 - Create a GitHub Personal Access Token (read-only scope)
 - Add it to your `.env` file as `GITHUB_TOKEN`
+
+#### Sample .env File
+Create a `.env` file in your project root with the following content (replace the placeholder values with your actual credentials):
+
+```
+GITHUB_TOKEN=your_github_token_here
+SUPABASE_HOST=your_supabase_host
+SUPABASE_DB=your_database_name
+SUPABASE_USER=your_db_user
+SUPABASE_PASSWORD=your_db_password
+SUPABASE_PORT=5432
+```
 
 ### 2. Supabase/PostgreSQL Setup
 - Create a Supabase project and database (or use a local PostgreSQL instance)
