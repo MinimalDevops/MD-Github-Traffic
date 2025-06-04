@@ -154,6 +154,19 @@ Automating the fetch ensures you always have the latest metrics, even if you for
    - Set visualization to Time series/Line chart.
    - Adjust time range (top right) to include your data (e.g., "Last 30 days").
 
+## Generating Total Views and Clones Query for Grafana
+To quickly see the total views and clones for each repository in a summary panel, use the provided `grafana_total_count_query.py` script. This script reads your `repos.yaml` and outputs a SQL query that aggregates total views and clones per repo.
+
+**Usage:**
+```bash
+python grafana_total_count_query.py
+```
+- The script will print a SQL query to your terminal.
+- Copy and paste this query into a Grafana panel to display a table or bar chart of total views and clones for each repo.
+
+**Benefit:**
+- Instantly generate a summary query for all your tracked repos—great for overview dashboards and quick comparisons.
+
 ---
 
 ## Tips
