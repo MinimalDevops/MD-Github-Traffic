@@ -2,6 +2,8 @@
 
 Track daily GitHub repository traffic (views and clones) and store metrics in Supabase (PostgreSQL/TimescaleDB).
 
+Read the Blog: [How to Track GitHub Repo Traffic Beyond 14 Days](https://medium.com/@minimaldevops/how-to-track-github-repo-traffic-beyond-14-days-73d16c85129e)
+
 ## Features
 - Fetches daily traffic metrics from GitHub REST API
 - Stores metrics in Supabase (cloud Postgres) or a local database
