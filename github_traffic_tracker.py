@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 import requests
 from sqlalchemy import create_engine, text
 from sqlalchemy.exc import IntegrityError
-from datetime import datetime
 import yaml
 
 # Load environment variables
