@@ -1,9 +1,11 @@
+// main.cue
 package dagger
 
 import (
 	"dagger.io/dagger"
 )
 
+// Base container
 base: dagger.#Container & {
 	from: "python:3.11-slim"
 	workdir: "/src"
@@ -14,26 +16,20 @@ base: dagger.#Container & {
 	}
 }
 
-lintContainer: base & {
-	withExec: [
+// Lint function (top-level, callable)
+lint: dagger.#Function & {
+	description: "Run linting with Ruff"
+	output: base.withExec([
 		["pip", "install", "-r", "requirements-dev.txt"],
 		["ruff", "."]
-	]
+	]).stdout
 }
 
-testContainer: base & {
-	withExec: [
+// Test function (top-level, callable)
+test: dagger.#Function & {
+	description: "Run tests with Pytest"
+	output: base.withExec([
 		["pip", "install", "-r", "requirements-dev.txt"],
 		["pytest"]
-	]
-}
-
-lint: dagger.#Function & {
-	description: "Run linting using ruff"
-	output: lintContainer.stdout
-}
-
-test: dagger.#Function & {
-	description: "Run tests using pytest"
-	output: testContainer.stdout
+	]).stdout
 }
