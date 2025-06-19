@@ -19,5 +19,8 @@ jobs:
       - name: Install Dagger
         run: curl -L https://dl.dagger.io/dagger/install.sh | DAGGER_VERSION=v0.18.10 BIN_DIR=/usr/local/bin sh
 
+      - name: Run Dagger lint
+        run: dagger call --module . lint
+
       - name: Run Dagger tests
-        run: dagger do lint test
+        run: dagger call --module . test
