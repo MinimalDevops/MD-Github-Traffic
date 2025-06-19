@@ -1,1 +1,1 @@
-module: "github.com/minimaldevops/md-github-traffic"
+module: "github.com/minimaldevops/MD-Github-Traffic"

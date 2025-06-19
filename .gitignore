@@ -40,3 +40,5 @@ actions-runner/
 
 #Modified repos
 repos.yaml
+query.graphql
+query2.graphql
