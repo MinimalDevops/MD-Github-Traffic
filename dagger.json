@@ -1,4 +1,6 @@
 {
+  "sdk": "cue",
   "name": "github-traffic-monitor",
-  "engineVersion": "v0.18.10"
+  "description": "My Dagger module",
+  "source": "./main.cue"
 }
