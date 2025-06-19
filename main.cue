@@ -1,4 +1,3 @@
-// main.cue
 package dagger
 
 import (
@@ -15,23 +14,26 @@ base: dagger.#Container & {
 	}
 }
 
-lint: base & {
+lintContainer: base & {
 	withExec: [
 		["pip", "install", "-r", "requirements-dev.txt"],
 		["ruff", "."]
 	]
 }
 
-test: base & {
+testContainer: base & {
 	withExec: [
 		["pip", "install", "-r", "requirements-dev.txt"],
 		["pytest"]
 	]
 }
 
-dagger.#Plan & {
-	pipeline: {
-		lint: lint
-		test: test
-	}
+lint: dagger.#Function & {
+	description: "Run linting using ruff"
+	output: lintContainer.stdout
+}
+
+test: dagger.#Function & {
+	description: "Run tests using pytest"
+	output: testContainer.stdout
 }
