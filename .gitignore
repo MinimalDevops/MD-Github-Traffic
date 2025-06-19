@@ -34,3 +34,9 @@ Thumbs.db
 
 # Cronjob Script
 add_github_traffic_cron.sh
+
+#Github Runner
+actions-runner/
+
+#Modified repos
+repos.yaml
