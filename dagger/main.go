@@ -2,14 +2,15 @@ package main
 
 import (
   "context"
+
   "dagger.io/dagger"
 )
 
-type Module struct{}  // your module’s root type
+type Module struct{}
 
 // Lint runs Ruff in a container.
 func (m *Module) Lint(ctx context.Context) (string, error) {
-  c, err := dagger.Connect(ctx)
+  c, err := dagger.Connect(ctx, dagger.WithLogOutput(nil))
   if err != nil {
     return "", err
   }
@@ -18,8 +19,8 @@ func (m *Module) Lint(ctx context.Context) (string, error) {
   src := c.Host().Directory(".")
   out, err := c.Container().
     From("python:3.11-slim").
-    WithMountedDirectory("/src", src).
     WithWorkdir("/src").
+    WithMountedDirectory("/src", src).
     WithExec([]string{"pip", "install", "-r", "requirements-dev.txt"}).
     WithExec([]string{"ruff", "."}).
     Stdout(ctx)
@@ -28,7 +29,7 @@ func (m *Module) Lint(ctx context.Context) (string, error) {
 
 // Test runs Pytest in a container.
 func (m *Module) Test(ctx context.Context) (string, error) {
-  c, err := dagger.Connect(ctx)
+  c, err := dagger.Connect(ctx, dagger.WithLogOutput(nil))
   if err != nil {
     return "", err
   }
@@ -37,8 +38,8 @@ func (m *Module) Test(ctx context.Context) (string, error) {
   src := c.Host().Directory(".")
   out, err := c.Container().
     From("python:3.11-slim").
-    WithMountedDirectory("/src", src).
     WithWorkdir("/src").
+    WithMountedDirectory("/src", src).
     WithExec([]string{"pip", "install", "-r", "requirements-dev.txt"}).
     WithExec([]string{"pytest"}).
     Stdout(ctx)

@@ -1,8 +1,6 @@
 {
-  "name": "github-traffic-monitor",
+  "name": "github.com/minimaldevops/github-traffic-monitor",
   "engineVersion": "v0.18.10",
-  "sdk": {
-    "source": "go"
-  },
-  "source": "dagger"
+  "sdk": "go",
+  "source": "dagger/main.go"
 }
