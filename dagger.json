@@ -1,5 +1,6 @@
 {
-  "sdk": "github.com/dagger/dagger/cue@main",
-  "source": "./cue/main.cue",
-  "name": "github-traffic-monitor"
+  "sdk": "cue",
+  "name": "github-traffic-monitor",
+  "description": "My Dagger module",
+  "source": "./main.cue"
 }
