@@ -3,4 +3,22 @@ repos:
   - owner: MinimalDevops
     repo: MD-Youtube-Summarizer
   - owner: MinimalDevops
-    repo: aws-api-gateway-apikey-rotation 
+    repo: aws-api-gateway-apikey-rotation
+  - owner: MinimalDevops
+    repo: MD-Github-Traffic
+  - owner: MinimalDevops
+    repo: blogs 
+  - owner: MinimalDevops
+    repo: open-policy-agent
+  - owner: MinimalDevops
+    repo: mkdocs
+  - owner: MinimalDevops
+    repo: MD-flashcard
+  - owner: MinimalDevops
+    repo: database-migration-postgres
+  - owner: MinimalDevops
+    repo: llama-youtube-summarizer
+  - owner: MinimalDevops
+    repo: llama-ocr
+  - owner: MinimalDevops
+    repo: MD-Medium-Metrics
