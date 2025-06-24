@@ -22,3 +22,7 @@ repos:
     repo: llama-ocr
   - owner: MinimalDevops
     repo: MD-Medium-Metrics
+  - owner: MinimalDevops
+    repo: MD-RSS-Notifications
+  - owner: MinimalDevops
+    repo: MD-Dark-Mode
