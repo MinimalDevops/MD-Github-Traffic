@@ -26,3 +26,5 @@ repos:
     repo: MD-RSS-Notifications
   - owner: MinimalDevops
     repo: MD-Dark-Mode
+  - owner: MinimalDevops
+    repo: MD-Kubernetes-Gateway-API
