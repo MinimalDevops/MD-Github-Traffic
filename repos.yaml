@@ -28,3 +28,5 @@ repos:
     repo: MD-Dark-Mode
   - owner: MinimalDevops
     repo: MD-Kubernetes-Gateway-API
+  - owner: MinimalDevops
+    repo: MD-n8n-scripts
