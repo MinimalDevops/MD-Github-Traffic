@@ -30,3 +30,9 @@ repos:
     repo: MD-Kubernetes-Gateway-API
   - owner: MinimalDevops
     repo: MD-n8n-scripts
+  - owner: MinimalDevops
+    repo: homepage
+  - owner: MinimalDevops
+    repo: MD-Local-Setup
+  - owner: MinimalDevops
+    repo: MD-Webpage-Summarizer
