@@ -156,18 +156,44 @@ Automating the fetch ensures you always have the latest metrics, even if you for
    - Set visualization to Time series/Line chart.
    - Adjust time range (top right) to include your data (e.g., "Last 30 days").
 
-## Generating Total Views and Clones Query for Grafana
-To quickly see the total views and clones for each repository in a summary panel, use the provided `grafana_total_count_query.py` script. This script reads your `repos.yaml` and outputs a SQL query that aggregates total views and clones per repo.
+## Generating Grafana Queries
+
+### All-Time Totals Query
+To generate queries for all-time totals across all repositories, use the `grafana_aggregated_totals_query.py` script:
+
+```bash
+python grafana_aggregated_totals_query.py
+```
+
+This script generates multiple useful queries:
+
+1. **All-Time Totals (Recommended for Stat Panels)**
+   - Shows total views and clones from the beginning until today
+   - Ignores the time range selected in Grafana
+   - Perfect for stat panels, gauges, or single value displays
+
+2. **Per Repository Breakdown**
+   - Shows totals for each individual repository
+   - Great for table panels to see which repos perform best
+
+3. **Time Series (Daily Totals)**
+   - Shows daily totals across all repositories
+   - Respects the time range selected in Grafana
+   - Perfect for line charts and area charts
+
+4. **Cumulative Time Series**
+   - Shows cumulative growth over time
+   - Great for trend analysis
 
 **Usage:**
-```bash
-python grafana_total_count_query.py
-```
-- The script will print a SQL query to your terminal.
-- Copy and paste this query into a Grafana panel to display a table or bar chart of total views and clones for each repo.
+- Copy the appropriate query from the script output
+- Paste it into your Grafana panel's query editor
+- Choose the right visualization type based on the query
 
-**Benefit:**
-- Instantly generate a summary query for all your tracked repos—great for overview dashboards and quick comparisons.
+**Benefits:**
+- Automatically includes all repositories from your `repos.yaml`
+- No need to manually edit SQL when adding new repos
+- Generates multiple query types for different dashboard needs
 
 ---
 
