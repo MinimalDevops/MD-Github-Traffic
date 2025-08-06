@@ -36,3 +36,11 @@ repos:
     repo: MD-Local-Setup
   - owner: MinimalDevops
     repo: MD-Webpage-Summarizer
+  - owner: MinimalDevops
+    repo: MD-Sheet-Editor
+  - owner: MinimalDevops
+    repo: github-readme-stats
+  - owner: MinimalDevops
+    repo: github-streak-stats-personal
+  - owner: MinimalDevops
+    repo: MinimalDevops

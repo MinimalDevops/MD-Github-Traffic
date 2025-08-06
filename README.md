@@ -195,6 +195,33 @@ This script generates multiple useful queries:
 - No need to manually edit SQL when adding new repos
 - Generates multiple query types for different dashboard needs
 
+### Generate GitHub Stats Image for README
+To create a beautiful GitHub Stats image for your README (similar to GitHub profile stats), use the `generate_github_stats_image.py` script:
+
+```bash
+python generate_github_stats_image.py
+```
+
+This script will:
+- Connect to your database using credentials from `.env`
+- Generate a dark-themed dashboard image with your GitHub traffic stats
+- Save the image to `images/github_traffic_stats.png`
+- Show total views, total clones, and repos tracked
+- Display top 3 repositories by views
+- Include the last updated date
+
+**Usage in README:**
+```markdown
+![GitHub Traffic Stats](images/github_traffic_stats.png)
+```
+
+**Features:**
+- Dark theme matching GitHub's design
+- High-resolution output (300 DPI)
+- Automatic data formatting with commas
+- Top repositories breakdown
+- Professional styling for GitHub profiles
+
 ---
 
 ## Tips
