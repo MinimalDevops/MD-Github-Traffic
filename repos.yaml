@@ -44,3 +44,5 @@ repos:
     repo: github-streak-stats-personal
   - owner: MinimalDevops
     repo: MinimalDevops
+  - owner: MinimalDevops
+    repo: MD-Linked-Secrets
