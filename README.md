@@ -158,69 +158,68 @@ Automating the fetch ensures you always have the latest metrics, even if you for
 
 ## Generating Grafana Queries
 
-### All-Time Totals Query
-To generate queries for all-time totals across all repositories, use the `grafana_aggregated_totals_query.py` script:
+This project includes 3 Python scripts to generate different types of Grafana queries for your GitHub traffic data:
+
+### 1. Individual Repository Time Series (`grafana_query.py`)
+Generates time series queries for individual repositories with separate lines for each repo and metric.
+
+```bash
+python grafana_query.py
+```
+
+**What it does:**
+- Creates separate lines for each repository's views and clones
+- Shows time series data for each repo individually
+- Perfect for line charts showing trends over time
+- Each repo gets its own line in the visualization
+
+**Use case:** When you want to see how each repository performs over time with separate trend lines.
+
+### 2. All-Time Aggregated Totals (`grafana_aggregated_totals_query.py`)
+Generates queries for all-time totals across all repositories combined.
 
 ```bash
 python grafana_aggregated_totals_query.py
 ```
 
-This script generates multiple useful queries:
+**What it does:**
+- Shows total views and clones from the beginning until today
+- Ignores the time range selected in Grafana
+- Perfect for stat panels, gauges, or single value displays
+- Gives you the grand total across all your repositories
 
-1. **All-Time Totals (Recommended for Stat Panels)**
-   - Shows total views and clones from the beginning until today
-   - Ignores the time range selected in Grafana
-   - Perfect for stat panels, gauges, or single value displays
+**Use case:** When you want to show total traffic across all repositories as a single number (like a KPI card).
 
-2. **Per Repository Breakdown**
-   - Shows totals for each individual repository
-   - Great for table panels to see which repos perform best
+### 3. Per-Repository Breakdown (`grafana_total_count_query.py`)
+Generates queries showing totals for each individual repository.
 
-3. **Time Series (Daily Totals)**
-   - Shows daily totals across all repositories
-   - Respects the time range selected in Grafana
-   - Perfect for line charts and area charts
+```bash
+python grafana_total_count_query.py
+```
 
-4. **Cumulative Time Series**
-   - Shows cumulative growth over time
-   - Great for trend analysis
+**What it does:**
+- Shows totals for each individual repository
+- Great for table panels to see which repos perform best
+- Allows you to compare repositories side by side
+- Perfect for ranking repositories by traffic
 
-**Usage:**
-- Copy the appropriate query from the script output
-- Paste it into your Grafana panel's query editor
-- Choose the right visualization type based on the query
+**Use case:** When you want to see which repositories are your top performers in a table or bar chart format.
+
+### How to Use These Queries
+
+1. **Run the appropriate script** based on what you want to visualize
+2. **Copy the generated SQL query** from the terminal output
+3. **Paste it into your Grafana panel's query editor**
+4. **Choose the right visualization type:**
+   - Time series queries → Line charts, area charts
+   - Aggregated totals → Stat panels, gauges, single value
+   - Per-repo breakdown → Tables, bar charts
 
 **Benefits:**
 - Automatically includes all repositories from your `repos.yaml`
 - No need to manually edit SQL when adding new repos
-- Generates multiple query types for different dashboard needs
-
-### Generate GitHub Stats Image for README
-To create a beautiful GitHub Stats image for your README (similar to GitHub profile stats), use the `generate_github_stats_image.py` script:
-
-```bash
-python generate_github_stats_image.py
-```
-
-This script will:
-- Connect to your database using credentials from `.env`
-- Generate a dark-themed dashboard image with your GitHub traffic stats
-- Save the image to `images/github_traffic_stats.png`
-- Show total views, total clones, and repos tracked
-- Display top 3 repositories by views
-- Include the last updated date
-
-**Usage in README:**
-```markdown
-![GitHub Traffic Stats](images/github_traffic_stats.png)
-```
-
-**Features:**
-- Dark theme matching GitHub's design
-- High-resolution output (300 DPI)
-- Automatic data formatting with commas
-- Top repositories breakdown
-- Professional styling for GitHub profiles
+- Each script serves a different visualization need
+- Easy to regenerate queries when your repo list changes
 
 ---
 
